@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<form id="calculator" th:action="@{/calculator}" method="post">
+    <input type="number" name="num1" th:value="${num1}" autofocus>
+    <input type="number" name="num2" th:value="${num2}"><br>
+    <input type="text" id="opera" name="opera" hidden><br>
+    <input type="button" value="Addition(+)" onclick="submitForm('+')">
+    <input type="button" value="Subtraction(-)" onclick="submitForm('-')">
+    <input type="button" value="Multiplication(x)" onclick="submitForm('*')">
+    <input type="button" value="Division(/)" onclick="submitForm('/')">
+</form>
+<p>Result: </p>
+<h3 th:text="${result}"></h3>
+<script>
+    function submitForm(opera) {
+        document.getElementById("opera").value = opera;
+        document.getElementById("calculator").submit();
+    }
+</script>
+</body>
+</html>
